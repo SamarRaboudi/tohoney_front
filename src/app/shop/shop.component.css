@@ -1,0 +1,10 @@
+.my_pagination /deep/ .ngx-pagination .current{
+    background: #ef4836;
+    outline: 1px solid #ef4836;
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 150px;
+    font-family: "Montserrat";
+	text-align: center;
+	overflow: hidden;
+}
