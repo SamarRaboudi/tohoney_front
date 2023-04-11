@@ -23,8 +23,8 @@ export class HomeComponent {
     this.service.getProduct().subscribe(prod=>{
       this.liste=prod
       this.nbrProd=prod.length
-      this.liste3=this.liste.filter(prod=>prod.categorie=="Oil")
-      this.liste2=this.liste.filter(prod=>prod.categorie=="Honey")
+      this.liste3=this.liste.filter(prod=>prod.categorie=="oil")
+      this.liste2=this.liste.filter(prod=>prod.categorie=="honey")
     })
   }
 }

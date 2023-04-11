@@ -28,13 +28,13 @@
                     <div class="product-single-img">
                         <div class="product-active owl-carousel">
                             <div class="item">
-                                <img src="assets/images/product/product-details/1.jpg" alt="">
+                                <img src="{{currentProd.image}}" alt="">
                             </div>
                            
                         </div>
                         <div class="product-thumbnil-active  owl-carousel">
                             <div class="item">
-                                <img src="assets/images/product/product-details/1.jpg" alt="">
+                                <img src="{{currentProd.image}}" alt="">
                             </div>
                             
                         </div>
@@ -42,9 +42,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product-single-content">
-                        <h3>Nature Honey</h3>
+                        <h3>{{currentProd.name}}</h3>
                         <div class="rating-wrap fix">
-                            <span class="pull-left">219.56 DT</span>
+                            <span class="pull-left">{{currentProd.price}} DT</span>
                             <ul class="rating pull-right">
                                 <li><i class="fa fa-star"></i></li>
                                 <li><i class="fa fa-star"></i></li>
@@ -57,13 +57,15 @@
                         <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs</p>
                         <ul class="input-style">
                             <li class="quantity cart-plus-minus">
-                                <input type="text" value="1" />
+                                <input type="text" value="{{number}} "/>
+                                <button class="dec qtybutton" (click)="dec()">-</button>
+                                <button class="inc qtybutton" (click)="inc()">+</button>
                             </li>
                             <li><a href="/cart">Add to Cart</a></li>
                         </ul>
                         <ul class="cetagory">
-                            <li>Categories:</li>
-                            <li><a href="#">Honey,</a></li>
+                            <li>Categories: </li>
+                            <li><a href="#">{{currentProd.categorie}}</a></li>
                             <!-- <li><a href="#">Olive</a></li> -->
                         </ul>
                         <ul class="socil-icon">
@@ -152,7 +154,7 @@
                         <div class="tab-pane" id="review">
                             <div class="review-wrap">
                                 <ul>
-                                    <li class="review-items">
+                                    <li class="review-items" >
                                         <div class="review-img">
                                             <img src="assets/images/comment/1.png" alt="">
                                         </div>
@@ -223,92 +225,38 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="featured-product-wrap">
-                        <div class="featured-product-img">
-                            <img src="assets/images/product/1.jpg" alt="">
-                        </div>
-                        <div class="featured-product-content">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h3><a href="shop.html">Nature Honey</a></h3>
-                                    <p>$219.56</p>
-                                </div>
-                                <div class="col-5 text-right">
-                                    <ul>
-                                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="cart.html"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
+            <ul class="row">
+                <li class="col-xl-3 col-lg-4 col-sm-6 col-12" *ngFor="let prod of liste | paginate:{itemsPerPage:3,currentPage:page,totalItems:nbrProd}" >
+                    <div class="product-wrap">
+                        <div class="product-img">
+                            <span>Sale</span>
+                            <img [src]="prod.image" alt="" width="30">
+                            <!-- <img src="assets/images/product/15.jpg" alt=""> -->
+                            <div class="product-icon flex-style">
+                                <ul>
+                                    <li><a  routerLink="/prodDetail/{{prod.id}}"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="/wish"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="/cart"><i class="fa fa-shopping-bag"></i></a></li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="featured-product-wrap">
-                        <div class="featured-product-img">
-                            <img src="assets/images/product/2.jpg" alt="">
-                        </div>
-                        <div class="featured-product-content">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h3><a href="shop.html">Olive Oil</a></h3>
-                                    <p>$354.75</p>
-                                </div>
-                                <div class="col-5 text-right">
-                                    <ul>
-                                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="cart.html"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="product-content">
+                            <h3><a href="single-product.html">{{prod.name}}</a></h3>
+                            <p class="pull-left">{{prod.price}} DT
+                                <del>90 DT</del>
+                            </p>
+                            <ul class="pull-right d-flex">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star-half-o"></i></li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="featured-product-wrap">
-                        <div class="featured-product-img">
-                            <img src="assets/images/product/3.jpg" alt="">
-                        </div>
-                        <div class="featured-product-content">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h3><a href="shop.html">Sunrise Oil</a></h3>
-                                    <p>$214.80</p>
-                                </div>
-                                <div class="col-5 text-right">
-                                    <ul>
-                                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="cart.html"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="featured-product-wrap">
-                        <div class="featured-product-img">
-                            <img src="assets/images/product/4.jpg" alt="">
-                        </div>
-                        <div class="featured-product-content">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h3><a href="shop.html">Coconut Oil</a></h3>
-                                    <p>$241.00</p>
-                                </div>
-                                <div class="col-5 text-right">
-                                    <ul>
-                                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="cart.html"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </li>    
+                
+            </ul>
         </div>
     </div>
     <!-- featured-product-area end -->

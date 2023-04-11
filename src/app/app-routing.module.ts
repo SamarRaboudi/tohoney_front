@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'shop', component:ShopComponent },
   { path: 'cart', component:CartComponent },
   { path: 'wish', component:WishlistComponent },
-  { path: 'prodDetail', component:ProdDetailComponent },
+  { path: 'prodDetail/:id', component:ProdDetailComponent },
   { path: 'check', component:CheckoutComponent },
 ];
 

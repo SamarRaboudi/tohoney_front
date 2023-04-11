@@ -86,7 +86,7 @@
                             <img [src]="prod.image" alt="" width="30">
                             <div class="product-icon flex-style">
                                 <ul>
-                                    <li><a  href="/prodDetail"><i class="fa fa-eye"></i></a></li>
+                                    <li><a routerLink="/prodDetail/{{prod.id}}"><i class="fa fa-eye"></i></a></li> 
                                     <li><a href="/wish"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="/cart"><i class="fa fa-shopping-bag"></i></a></li>
                                 </ul>
@@ -145,7 +145,7 @@
                             <img [src]="prod.image" alt="" width="30">
                             <div class="product-icon flex-style">
                                 <ul>
-                                    <li><a href="/prodDetail"><i class="fa fa-eye"></i></a></li>
+                                    <li><a routerLink="/prodDetail/{{prod.id}}"><i class="fa fa-eye"></i></a></li>
                                     <li><a href="/wish"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="/cart"><i class="fa fa-shopping-bag"></i></a></li>
                                 </ul>
